@@ -1,0 +1,51 @@
+:host {
+    width: 100%;
+    /* padding-right: 8px;
+    margin-bottom: 10px; */
+    overflow: hidden;
+}
+
+
+.list_item .list_media{
+  position: relative;
+  width: 100%;
+  height: 348rpx;
+}
+
+
+.list_item .list_media text{
+  position: absolute;
+  bottom: 6rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.list_item .list_media .listen_count{
+  left:6rpx;
+}
+.list_item .list_media .icon_play{
+  right:6rpx;
+  display: block;
+  width: 48rpx;
+  height: 48rpx;
+  overflow: hidden;
+  background: url('../../../assets/images/list_sprite.png') no-repeat;
+}
+
+.list_item .list_info{
+  padding: 10rpx;
+  background-color: #fff;
+}
+
+.list_item .list_info text{
+  display: block;
+}
+
+.list_item .list_info .list_tit{
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.list_item .list_info .list_text{
+  font-size: 24rpx;
+}
