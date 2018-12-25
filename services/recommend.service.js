@@ -1,10 +1,13 @@
-const commonParams = getApp().commonParams;
+const app = getApp();
+const commonParams = app.commonParams;
+const commonPath = app.commonApiPath;
+
 
 class RecommendService {
   getRecommendDatas() {
     return new Promise((resolve, reject) => {
       wx.request({
-        url:'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg?',
+        url: commonPath + '/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg?',
         data: commonParams,
         success(res) {
           resolve(res.data.data);

@@ -16,7 +16,7 @@ Page({
       this.setData({
         recommendDatas: res
       });
-      console.log(this.data.recommendDatas.songList[0]);
+      // console.log(this.data.recommendDatas.songList[0]);
     })
   },
 
