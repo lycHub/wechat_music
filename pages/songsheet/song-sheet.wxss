@@ -86,3 +86,10 @@ width: 100%;
   font-size: 28rpx;
   color: #777;
 }
+
+.song_sheet .song_list .song_list_wrap .to_bottom{
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: #777;
+}

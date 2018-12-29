@@ -7,10 +7,14 @@ Page({
   data: {
     params: {
       disstid: null,
-      song_begin: 15,
+      song_begin: 1,
       song_num: 15
     },
-    songDatas: {}
+    songList: [],
+    otherDatas: {},
+    total_page: 0,
+    current_page: 1,
+    isToBottom: false
   },
 
   /**
@@ -22,18 +26,56 @@ Page({
         'params.disstid': options.id
       });
 
-      const audio = wx.createInnerAudioContext();
-      audio.src = 'http://117.21.183.22/amobile.music.tc.qq.com/C400002ZKnKQ34rbZu.m4a?guid=1523753600&vkey=AEB1D81AA4A987AFE2BA8EBA990F9844A1978BF822ADE59C0E26B32863E7715E7DDAF420570D6CEBA1ED09B6A7637D01B1FF8FA92DE790D0&uin=500&fromtag=38';
-      audio.play();
+      // const audio = wx.createInnerAudioContext();
+      // audio.src = 'http://117.21.183.22/amobile.music.tc.qq.com/C400002ihFxm1EarI4.m4a?guid=1523753600&vkey=3FE6D694C441CF43415B531529A531F32C309FF35059DDCE192EEADE8768455BA71803F596BA1DE3FF21D2EA153C557D5727210B67CAAEA2&uin=500&fromtag=38';
+      // audio.play();
 
-      audio.onPlay(function() {
-        console.log('play');
-      });
-
-      sheetServe.getSheets(this.data.params).then(res => {
-        this.setData({ songDatas: res });
-        console.log('songDatas', this.data.songDatas);
-      });
+      // audio.onError(function(err) {
+      //   console.log('err', err);
+      // });
+      this.getDatas(true);
     }
+  },
+
+
+  onReachBottom(){
+    const page = Math.min(Math.max(1, this.data.current_page + 1), this.data.total_page);
+    if (page !== this.data.current_page) {
+      this.data.current_page = page;
+      this.setData({
+        'params.song_begin': (page - 1) * 15,
+        isToBottom: this.data.current_page >= this.data.total_page
+      });
+      this.getDatas();
+    }
+
+    // console.log(this.data.isToBottom);
+  },
+
+
+  getDatas(init = false) {
+    sheetServe.getSheets(this.data.params).then(res => {
+      if (init) {
+        this.setData({
+          songList: res.songlist,
+          otherDatas: {
+            logo: res.logo,
+            dissname: res.dissname,
+            nickname: res.nickname,
+            visitnum: res.visitnum,
+            songnum: res.songnum
+          },
+          total_page: Math.ceil(res.songnum / this.data.params.song_num)
+        });
+      }else{
+        this.setData({
+          songList: this.data.songList.concat(res.songlist)
+        });
+      }
+
+      
+      // console.log('songList', this.data.songList);
+      // console.log('total_page', this.data.total_page);
+    });
   }
 })

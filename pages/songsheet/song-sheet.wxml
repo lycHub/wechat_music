@@ -3,17 +3,17 @@
     <view class="info">
       <view class='top'>
         <view class='cover_img'>
-          <image src='{{songDatas.logo}}' mode='aspectFit'></image>
+          <image src='{{otherDatas.logo}}' mode='aspectFit'></image>
         </view>
         <view class='text'>
           <view class='title'>
-            <text>{{songDatas.dissname}}</text>
+            <text>{{otherDatas.dissname}}</text>
           </view>
           <view class='author'>
-            <text>{{songDatas.nickname}}</text>
+            <text>{{otherDatas.nickname}}</text>
           </view>
           <view class='listen_num'>
-            <text>播放量：{{songDatas.visitnum}}</text>
+            <text>播放量：{{otherDatas.visitnum}}</text>
           </view>
         </view>
       </view>
@@ -24,23 +24,24 @@
     </view>
 
 
-    <image class='pic_cover' src='{{songDatas.logo}}'></image>
+    <image class='pic_cover' src='{{otherDatas.logo}}'></image>
   </view>
-
 
   <view class='song_list'>
     <view class='song_list_wrap'>
       <view class='title'>
-        <text>歌单：共{{songDatas.songnum}}首</text>
+        <text>歌单：共{{otherDatas.songnum}}首</text>
         <text>收藏</text>
       </view>
 
       <view class='list'>
-        <view class='item' wx:for="{{songDatas.songlist}}" wx:key="{{item.albumid}}">
+        <view class='item' wx:for="{{songList}}" wx:key="{{item.albumid}}">
           <text class='tit'>{{item.songname}}</text>
           <text class='desc'>{{item.albumname}}</text>
         </view>
       </view>
+
+      <text class='to_bottom' wx:if="{{isToBottom}}"></text>
 
     </view>
   </view>
