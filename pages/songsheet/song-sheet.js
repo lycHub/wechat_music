@@ -43,13 +43,10 @@ Page({
     if (page !== this.data.current_page) {
       this.data.current_page = page;
       this.setData({
-        'params.song_begin': (page - 1) * 15,
-        isToBottom: this.data.current_page >= this.data.total_page
+        'params.song_begin': (page - 1) * 15
       });
       this.getDatas();
     }
-
-    // console.log(this.data.isToBottom);
   },
 
 
@@ -69,7 +66,8 @@ Page({
         });
       }else{
         this.setData({
-          songList: this.data.songList.concat(res.songlist)
+          songList: this.data.songList.concat(res.songlist),
+          isToBottom: this.data.current_page >= this.data.total_page
         });
       }
 

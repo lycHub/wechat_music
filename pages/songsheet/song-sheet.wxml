@@ -41,7 +41,7 @@
         </view>
       </view>
 
-      <text class='to_bottom' wx:if="{{isToBottom}}"></text>
+      <text class='to_bottom' wx:if="{{isToBottom}}">到底了~~</text>
 
     </view>
   </view>
