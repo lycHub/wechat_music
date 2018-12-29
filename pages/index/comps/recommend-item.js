@@ -1,4 +1,3 @@
-// pages/index/recommend-item.js
 Component({
   // externalClasses: ['list_item'],
   /**

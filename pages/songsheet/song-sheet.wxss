@@ -1,1 +1,88 @@
-/* pages/songsheet/song-sheet.wxss */
+.song_sheet .info_wrap{
+position: relative;
+width: 100%;
+}
+.song_sheet .info_wrap .info{
+  position: relative;
+  z-index: 1;
+  padding: 30rpx 0;
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+}
+
+.song_sheet .info_wrap .pic_cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 310rpx;
+    filter: blur(30rpx);
+}
+.song_sheet .info_wrap .info .top{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.song_sheet .info_wrap .info .top .cover_img{
+  width: 33%;
+  height: 250rpx;
+}
+.song_sheet .info_wrap .info .top .cover_img image{
+  width: 100%;
+  height: 100%;
+}
+
+.song_sheet .info_wrap .info .top .text{
+  width: 55%;
+  font-size: 28rpx;
+}
+
+.song_sheet .info_wrap .info .top .text .title{
+  font-size: 36rpx;
+}
+
+.song_sheet .info_wrap .info .top .text .author{
+  margin: 20rpx 0;
+}
+
+.song_sheet .info_wrap .info .play_start{
+  width: 45%;
+  margin: 30rpx auto 0 auto;
+}
+
+.song_sheet .song_list .song_list_wrap{
+  width: 90%;
+  margin: 30rpx auto;
+}
+
+.song_sheet .song_list .song_list_wrap .title{
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-size: 28rpx;
+}
+
+
+.song_sheet .song_list .song_list_wrap .title text:last-child{
+  color: #31c27c;
+}
+
+
+.song_sheet .song_list .song_list_wrap .list .item{
+  padding: 30rpx 0;
+}
+
+.song_sheet .song_list .song_list_wrap .list .item text{
+  display: block;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+}
+
+.song_sheet .song_list .song_list_wrap .list .item .desc{
+  font-size: 28rpx;
+  color: #777;
+}

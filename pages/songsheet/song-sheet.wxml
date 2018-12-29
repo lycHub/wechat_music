@@ -1,2 +1,47 @@
-<!--pages/songsheet/song-sheet.wxml-->
-<text>pages/songsheet/song-sheet.wxml</text>
+<view class="song_sheet">
+  <view class='info_wrap'>
+    <view class="info">
+      <view class='top'>
+        <view class='cover_img'>
+          <image src='{{songDatas.logo}}' mode='aspectFit'></image>
+        </view>
+        <view class='text'>
+          <view class='title'>
+            <text>{{songDatas.dissname}}</text>
+          </view>
+          <view class='author'>
+            <text>{{songDatas.nickname}}</text>
+          </view>
+          <view class='listen_num'>
+            <text>播放量：{{songDatas.visitnum}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='play_start'>
+        <button type='primary'>播放全部</button>
+      </view>
+    </view>
+
+
+    <image class='pic_cover' src='{{songDatas.logo}}'></image>
+  </view>
+
+
+  <view class='song_list'>
+    <view class='song_list_wrap'>
+      <view class='title'>
+        <text>歌单：共{{songDatas.songnum}}首</text>
+        <text>收藏</text>
+      </view>
+
+      <view class='list'>
+        <view class='item' wx:for="{{songDatas.songlist}}" wx:key="{{item.albumid}}">
+          <text class='tit'>{{item.songname}}</text>
+          <text class='desc'>{{item.albumname}}</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

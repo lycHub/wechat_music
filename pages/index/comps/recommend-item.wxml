@@ -1,10 +1,10 @@
  <view class='list_item'>
-          <view class='list_media'>
-            <image mode="aspectFit" src="{{pic}}"></image>
-            <text class='listen_count'>{{listenCountFormat}}万</text>
-          </view>
-          <view class='list_info'>
-            <text class='list_tit'>{{title}}</text>
-            <text class='list_text'>{{author}}</text>
-          </view>
-        </view>
+    <view class='list_media'>
+      <image mode="aspectFit" src="{{pic}}"></image>
+      <text class='listen_count'>{{listenCountFormat}}万</text>
+    </view>
+    <view class='list_info'>
+      <text class='list_tit'>{{title}}</text>
+      <text class='list_text'>{{author}}</text>
+    </view>
+  </view>
