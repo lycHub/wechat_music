@@ -18,7 +18,7 @@
         </view>
       </view>
 
-      <view class='play_start'>
+      <view class="{{playAll_class}}">
         <button type='primary'>播放全部</button>
       </view>
     </view>

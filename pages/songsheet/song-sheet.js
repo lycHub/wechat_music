@@ -14,7 +14,10 @@ Page({
     otherDatas: {},
     total_page: 0,
     current_page: 1,
-    isToBottom: false
+    isToBottom: false,
+
+    // 按钮播放全部的className
+    playAll_class: 'play_start'
   },
 
   /**
@@ -34,6 +37,28 @@ Page({
       //   console.log('err', err);
       // });
       this.getDatas(true);
+    }
+  },
+
+
+  onReady() {
+    const playAll = wx.createSelectorQuery().select('.song_sheet .info_wrap .info .play_start');
+    playAll.boundingClientRect(rect => {
+      this.btnTop = rect.top;
+      // console.log(this.btnTop);
+    }).exec()
+  },
+
+  onPageScroll({ scrollTop }) {
+    // console.log(obj);
+    if (scrollTop >= this.btnTop) {
+      this.setData({
+        playAll_class: 'play_start fix'
+      });
+    }else{
+      this.setData({
+        playAll_class: 'play_start'
+      })
     }
   },
 
@@ -72,7 +97,7 @@ Page({
       }
 
       
-      // console.log('songList', this.data.songList);
+      console.log(this.data.songList);
       // console.log('total_page', this.data.total_page);
     });
   }

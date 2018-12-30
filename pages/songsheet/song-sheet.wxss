@@ -47,8 +47,21 @@ width: 100%;
 }
 
 .song_sheet .info_wrap .info .play_start{
+  width: 100%;
+  padding: 15px 0;
+}
+
+
+.song_sheet .info_wrap .info .play_start button{
+  display: block;
   width: 45%;
-  margin: 30rpx auto 0 auto;
+  margin: 0 auto;
+}
+
+.song_sheet .info_wrap .info .play_start.fix{
+  position: fixed;
+  top:0;
+  background-color: #777;
 }
 
 .song_sheet .song_list .song_list_wrap{
