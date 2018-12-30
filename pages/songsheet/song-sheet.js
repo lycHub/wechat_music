@@ -132,7 +132,7 @@ Page({
     const index = Math.min(this.data.currentIndex + 1, this.data.songList.length - 1);
     this.setData({ playState: false, currentIndex: index });
     this.playSong();
-    console.log('currentIndex', this.data.currentIndex);
+    // console.log('currentIndex', this.data.currentIndex);
   },
 
 

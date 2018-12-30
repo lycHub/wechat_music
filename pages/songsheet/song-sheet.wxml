@@ -55,9 +55,10 @@
   </view>
 </view>
 <my-audio
-loop="{{loop}}"
-currentSong="{{currentSong}}"
-playState="{{playState}}"
-bindplaying="onPlaying"
-bindpause="onPausing"
-bindend="onEnded"></my-audio>
+  loop="{{loop}}"
+  currentSong="{{currentSong}}"
+  playState="{{playState}}"
+  bindplaying="onPlaying"
+  bindpause="onPausing"
+  bindend="onEnded">
+</my-audio>
