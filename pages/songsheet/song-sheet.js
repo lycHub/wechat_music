@@ -28,7 +28,10 @@ Page({
     // 已经播放过
     hasPlayed: false,
 
-    loop: false
+    loop: false,
+    
+    // 正在播放的歌曲
+    currentSong: {}
   },
 
   /**
@@ -89,23 +92,26 @@ Page({
 
   // 播放/暂停切换
   togglePlay(event) {
-    if (this.data.currentIndex < 0) {
-      this.playSong();
-    } else {
-      this.setData({ playState: !this.data.playState });
-    }
+    this.setData({ playState: !this.data.playState });
   },
 
 
   // 点击播放歌曲
   playSong(event) {
-    let index = event.currentTarget.dataset.index || 0;
+    let index;
+
+    if (!event) {
+      index = Math.max(0, this.data.currentIndex);
+    }else{
+      index = event.currentTarget.dataset.index || 0;
+    }
+
     // if (!event.currentTarget.dataset.index) {
     //   index = 0;
     // }else{
     //   index = event.currentTarget.dataset.index
     // }
-    this.setData({ currentIndex: index, hasPlayed: true });
+    this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
   },
 
 
@@ -123,9 +129,9 @@ Page({
 
   // 结束播放结束事件
   onEnded() {
-    this.setData({ playState: false });
     const index = Math.min(this.data.currentIndex + 1, this.data.songList.length - 1);
-    this.setData({ currentIndex: index });
+    this.setData({ playState: false, currentIndex: index });
+    this.playSong();
     console.log('currentIndex', this.data.currentIndex);
   },
 

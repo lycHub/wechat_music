@@ -23,7 +23,7 @@
         <button type='primary' bindtap="playSong" wx:if="{{!hasPlayed}}">播放全部</button>
         <view class='control' wx:if="{{hasPlayed}}">
           <text bindtap="togglePlay" class="{{playState ? 'iconfont icon-suspend_icon' : 'iconfont icon-icon-'}}"></text>
-          <text class='name'>后来</text>
+          <text class='name'>{{currentSong.songname}}</text>
         </view>
       </view>
     </view>
@@ -54,4 +54,10 @@
     </view>
   </view>
 </view>
-<my-audio loop="{{loop}}" songList="{{songList}}" currentIndex="{{currentIndex}}" playState="{{playState}}" bindplaying="onPlaying" bindpause="onPausing" bindend="onEnded"></my-audio>
+<my-audio
+loop="{{loop}}"
+currentSong="{{currentSong}}"
+playState="{{playState}}"
+bindplaying="onPlaying"
+bindpause="onPausing"
+bindend="onEnded"></my-audio>

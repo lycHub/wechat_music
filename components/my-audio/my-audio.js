@@ -1,4 +1,5 @@
-// components/my-audio/my-audio.js
+const isEmptyObject = require('../../utils/util.js').isEmptyObject;
+
 Component({
   lifetimes: {
     attached() {
@@ -12,11 +13,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    songList: {
-      type: Array,
-      value: [],
+    currentSong: {
+      type: Object,
       observer(newVal) {
-        // console.log('newVal', newVal);
+        console.log('currentSong', newVal);
+        if (newVal && !isEmptyObject(newVal)) {
+          const songmid = newVal.songmid;
+          this.audio.src = 'http://dl.stream.qqmusic.qq.com/C400' + songmid + '.m4a?guid=8777127740&vkey=77026141B22717117D1730396C45F6819AF553C7DEEF3E866969E0096BCD92E2DA6732DF0EC6CAEE3CABC2E576D8CA5E883BA97C9572D7D8&uin=500&fromtag=38';
+          this.play();
+        }
       }
     },
 
@@ -25,24 +30,6 @@ Component({
     loop: {
       type: Boolean,
       value: false
-    },
-
-    // 当前播放索引
-    currentIndex: {
-      type: Number,
-      observer(newVal) {
-        // console.log('currentIndex', newVal);
-    
-        if (this.data.songList.length) {
-          this.setData({
-            currentSong: this.data.songList[newVal]
-          });
-
-          const songmid = this.data.currentSong.songmid;
-          this.audio.src = 'http://dl.stream.qqmusic.qq.com/C400' + songmid + '.m4a?guid=8777127740&vkey=77026141B22717117D1730396C45F6819AF553C7DEEF3E866969E0096BCD92E2DA6732DF0EC6CAEE3CABC2E576D8CA5E883BA97C9572D7D8&uin=500&fromtag=38';
-          this.play();
-        }
-      }
     },
 
     // 播放状态
@@ -64,7 +51,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    currentSong: {}
+
   },
 
   /**
