@@ -1,3 +1,5 @@
+@import "./assets/styles/font.wxss";
+
 .container{
   font-size: 32rpx;
   background-color: #f4f4f4;

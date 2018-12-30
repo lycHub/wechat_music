@@ -6,6 +6,7 @@ width: 100%;
   position: relative;
   z-index: 1;
   padding: 30rpx 0;
+  padding-bottom: 0;
   background-color: rgba(0,0,0,.5);
   color: #fff;
 }
@@ -63,6 +64,22 @@ width: 100%;
   top:0;
   background-color: #777;
 }
+.song_sheet .info_wrap .info .play_start .control{
+  display: flex;
+  align-items: center;
+}
+.song_sheet .info_wrap .info .play_start .control .iconfont{
+  color: #31c27c;
+  font-size: 88rpx;
+  margin-left: 40rpx;
+}
+
+.song_sheet .info_wrap .info .play_start .control .name{
+  color: #fff;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+
 
 .song_sheet .song_list .song_list_wrap{
   width: 90%;
@@ -77,7 +94,7 @@ width: 100%;
 }
 
 
-.song_sheet .song_list .song_list_wrap .title text:last-child{
+.song_sheet .song_list .song_list_wrap .title .like text{
   color: #31c27c;
 }
 

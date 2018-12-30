@@ -13,13 +13,18 @@
             <text>{{otherDatas.nickname}}</text>
           </view>
           <view class='listen_num'>
-            <text>播放量：{{otherDatas.visitnum}}</text>
+            <text>播放量：{{otherDatas.visitnum}}万</text>
           </view>
         </view>
       </view>
 
       <view class="{{playAll_class}}">
-        <button type='primary'>播放全部</button>
+        <!-- <button type='primary' bindtap="togglePlay" data-state="{{playState}}">{{playState ? '暂停' : '播放'}}</button> -->
+        <button type='primary' bindtap="playSong" wx:if="{{!hasPlayed}}">播放全部</button>
+        <view class='control' wx:if="{{hasPlayed}}">
+          <text bindtap="togglePlay" class="{{playState ? 'iconfont icon-suspend_icon' : 'iconfont icon-icon-'}}"></text>
+          <text class='name'>后来</text>
+        </view>
       </view>
     </view>
 
@@ -31,11 +36,14 @@
     <view class='song_list_wrap'>
       <view class='title'>
         <text>歌单：共{{otherDatas.songnum}}首</text>
-        <text>收藏</text>
+        <view class='like'>
+          <text style='margin-right:16rpx;'>收藏</text>
+          <text class="iconfont icon-shoucang"></text>
+        </view>
       </view>
 
       <view class='list'>
-        <view class='item' wx:for="{{songList}}" wx:key="{{item.albumid}}">
+        <view class='item' wx:for="{{songList}}" wx:key="{{item.albumid}}" bindtap="playSong" data-index="{{index}}">
           <text class='tit'>{{item.songname}}</text>
           <text class='desc'>{{item.albumname}}</text>
         </view>
@@ -46,3 +54,4 @@
     </view>
   </view>
 </view>
+<my-audio loop="{{loop}}" songList="{{songList}}" currentIndex="{{currentIndex}}" playState="{{playState}}" bindplaying="onPlaying" bindpause="onPausing" bindend="onEnded"></my-audio>

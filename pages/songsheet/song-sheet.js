@@ -17,7 +17,18 @@ Page({
     isToBottom: false,
 
     // 按钮播放全部的className
-    playAll_class: 'play_start'
+    playAll_class: 'play_start',
+
+    // 当前播放索引
+    currentIndex: -1,
+
+    // 是否正在播放
+    playState: false,
+
+    // 已经播放过
+    hasPlayed: false,
+
+    loop: false
   },
 
   /**
@@ -28,14 +39,6 @@ Page({
       this.setData({
         'params.disstid': options.id
       });
-
-      // const audio = wx.createInnerAudioContext();
-      // audio.src = 'http://117.21.183.22/amobile.music.tc.qq.com/C400002ihFxm1EarI4.m4a?guid=1523753600&vkey=3FE6D694C441CF43415B531529A531F32C309FF35059DDCE192EEADE8768455BA71803F596BA1DE3FF21D2EA153C557D5727210B67CAAEA2&uin=500&fromtag=38';
-      // audio.play();
-
-      // audio.onError(function(err) {
-      //   console.log('err', err);
-      // });
       this.getDatas(true);
     }
   },
@@ -50,15 +53,24 @@ Page({
   },
 
   onPageScroll({ scrollTop }) {
-    // console.log(obj);
+    const hasFixed = /fix/.test(this.data.playAll_class);
+
+    // if (scrollTop > this.data.currentTop)
     if (scrollTop >= this.btnTop) {
-      this.setData({
-        playAll_class: 'play_start fix'
-      });
+      if (!hasFixed) {
+        // console.log('b');
+        this.setData({
+          playAll_class: 'play_start fix',
+          currentTop: scrollTop
+        });
+      }
     }else{
-      this.setData({
-        playAll_class: 'play_start'
-      })
+      if (hasFixed) {
+        // console.log('a');
+        this.setData({
+          playAll_class: 'play_start'
+        });
+      }
     }
   },
 
@@ -75,6 +87,50 @@ Page({
   },
 
 
+  // 播放/暂停切换
+  togglePlay(event) {
+    if (this.data.currentIndex < 0) {
+      this.playSong();
+    } else {
+      this.setData({ playState: !this.data.playState });
+    }
+  },
+
+
+  // 点击播放歌曲
+  playSong(event) {
+    let index = event.currentTarget.dataset.index || 0;
+    // if (!event.currentTarget.dataset.index) {
+    //   index = 0;
+    // }else{
+    //   index = event.currentTarget.dataset.index
+    // }
+    this.setData({ currentIndex: index, hasPlayed: true });
+  },
+
+
+  // 接收正在播放事件
+  onPlaying() {
+    this.setData({ playState: true });
+  },
+
+
+  // 接收暂停事件
+  onPausing() {
+    this.setData({ playState: false });
+  },
+
+
+  // 结束播放结束事件
+  onEnded() {
+    this.setData({ playState: false });
+    const index = Math.min(this.data.currentIndex + 1, this.data.songList.length - 1);
+    this.setData({ currentIndex: index });
+    console.log('currentIndex', this.data.currentIndex);
+  },
+
+
+
   getDatas(init = false) {
     sheetServe.getSheets(this.data.params).then(res => {
       if (init) {
@@ -84,7 +140,7 @@ Page({
             logo: res.logo,
             dissname: res.dissname,
             nickname: res.nickname,
-            visitnum: res.visitnum,
+            visitnum: (res.visitnum / 1000).toFixed(1),
             songnum: res.songnum
           },
           total_page: Math.ceil(res.songnum / this.data.params.song_num)
@@ -97,7 +153,7 @@ Page({
       }
 
       
-      console.log(this.data.songList);
+      // console.log(this.data.songList);
       // console.log('total_page', this.data.total_page);
     });
   }

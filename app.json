@@ -13,6 +13,9 @@
   "requiredBackgroundModes": [
     "audio"
   ],
+  "usingComponents": {
+    "my-audio": "../../components/my-audio/my-audio"
+  },
   "tabBar": {
     "color": "rgba(0,0,0,.6)",
     "selectedColor": "#31c27c",
