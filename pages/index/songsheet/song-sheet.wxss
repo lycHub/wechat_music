@@ -1,0 +1,7 @@
+.song_list .title{
+  font-size: 36rpx;
+}
+
+.song_list .author{
+  margin: 20rpx 0;
+}

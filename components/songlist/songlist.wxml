@@ -6,15 +6,9 @@
           <image src='{{otherDatas.logo}}' mode='aspectFit'></image>
         </view>
         <view class='text'>
-          <view class='title'>
-            <text>{{otherDatas.dissname}}</text>
-          </view>
-          <view class='author'>
-            <text>{{otherDatas.nickname}}</text>
-          </view>
-          <view class='listen_num'>
-            <text>播放量：{{otherDatas.visitnum}}万</text>
-          </view>
+
+        <slot></slot>
+        
         </view>
       </view>
 
@@ -34,7 +28,8 @@
   <view class='song_list'>
     <view class='song_list_wrap'>
       <view class='title'>
-        <text>歌单：共{{otherDatas.songnum}}首</text>
+        <slot name="count"></slot>
+        <!-- <text>歌单：共{{otherDatas.songnum}}首</text> -->
         <view class='like'>
           <text style='margin-right:16rpx;'>收藏</text>
           <text class="iconfont icon-shoucang"></text>

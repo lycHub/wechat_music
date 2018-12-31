@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/songsheet/song-sheet",
+    "pages/index/songsheet/song-sheet",
     "pages/toplist/toplist",
     "pages/search/search"
   ],
@@ -15,7 +15,6 @@
     "audio"
   ],
   "usingComponents": {
-    "my-audio": "../../components/my-audio/my-audio",
     "song-list": "../../components/songlist/songlist"
   },
   "tabBar": {

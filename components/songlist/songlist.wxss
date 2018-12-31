@@ -39,13 +39,13 @@ width: 100%;
   font-size: 28rpx;
 }
 
-.song_sheet .info_wrap .info .top .text .title{
+/* .song_sheet .info_wrap .info .top .text .title{
   font-size: 36rpx;
 }
 
 .song_sheet .info_wrap .info .top .text .author{
   margin: 20rpx 0;
-}
+} */
 
 .song_sheet .info_wrap .info .play_start{
   width: 100%;

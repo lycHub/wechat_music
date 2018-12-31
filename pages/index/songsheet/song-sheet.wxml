@@ -1,0 +1,19 @@
+<view class="song_list">
+  <song-list songList="{{songList}}" otherDatas="{{otherDatas}}" total_page="{{total_page}}" isToBottom="{{isToBottom}}" playAll_class="{{playAll_class}}" bindbtnTop="getBtnTop">
+
+    <view>
+      <view class='title'>
+        <text>{{otherDatas.dissname}}</text>
+      </view>
+      <view class='author'>
+        <text>{{otherDatas.nickname}}</text>
+      </view>
+      <view class='listen_num'>
+        <text>播放量：{{otherDatas.visitnum}}万</text>
+      </view>
+    </view>
+
+    <text slot="count">歌单：共{{otherDatas.songnum}}首</text>
+
+  </song-list>
+</view>

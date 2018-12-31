@@ -5,15 +5,14 @@ Component({
     show() {
       const playAll = wx.createSelectorQuery().in(this).select('.song_sheet .info_wrap .info .play_start');
       playAll.boundingClientRect(rect => {
-        console.log(rect);
         this.triggerEvent('btnTop', rect.top);
-        // console.log(this.btnTop);
       }).exec()
     }
   },
 
   options: {
     addGlobalClass: true,
+    multipleSlots: true
   },
 
 

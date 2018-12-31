@@ -24,7 +24,7 @@ Page({
   toSongSheet(event){
     const id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../songsheet/song-sheet?id=' + id
+      url: './songsheet/song-sheet?id=' + id
     });
   }
 })
