@@ -6,6 +6,7 @@ Component({
       this.audio = wx.createInnerAudioContext();
       this.audio.loop = this.data.loop;
       this._onEnd();
+      this._onError();
     },
 
     detached(){
@@ -87,8 +88,20 @@ Component({
     _onEnd() {
       this.audio.onEnded(() => {
         console.log('播放结束');
-        // this.audio.startTime = 0;
         this.triggerEvent('end');
+      })
+    },
+
+    // 
+    _onError(){
+      this.audio.onError(err => {
+        console.log(err);
+        wx.showToast({
+          title: '播放错误' + err.errMsg,
+          icon: 'none',
+          duration: 2000
+        });
+        this.triggerEvent('error');
       })
     }
   }
