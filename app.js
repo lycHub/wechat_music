@@ -9,6 +9,23 @@ App({
     needNewCode: 1
   },
 
+  /*
+  g_tk:480207375
+w:红尘来去一场梦
+zhidaqu:1
+catZhida:1
+t:0
+flag:1
+ie:utf-8
+sem:1
+aggr:0
+perpage:20
+n:20
+p:1
+remoteplace:txt.mqq.all
+  
+   */
+
   commonApiPath: 'https://c.y.qq.com',
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）

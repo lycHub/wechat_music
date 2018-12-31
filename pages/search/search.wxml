@@ -1,0 +1,57 @@
+<view class="search">
+  <view class='control'>
+    <text class='iconfont icon-sousuo'></text>
+    <input
+    placeholder="搜索歌曲、歌单、专辑"
+    value="{{searchParams.keyword}}"
+    bindfocus="onFocus"
+    bindconfirm="onConfirm" />
+    <text class='cancel' wx:if="{{isFocus || searchParams.keyword.length}}" bindtap="onCancel">取消</text>
+  </view>
+
+
+  <view class='hotkeys' wx:if="{{!isFocus && !results.length}}">
+    <view class='key_wrap' bindtap='onTapKey'>
+    <text wx:for="{{hotKeys}}" wx:key="{{item.n}}" data-keyword="{{item.k}}">{{item.k}}</text>
+    </view>
+  </view>
+
+
+  <view class="search_history" wx:if="{{isFocus && !results.length}}">
+  <view class='history_wrap'>
+
+
+    <view class='his_item' wx:for="{{searchHis}}" wx:key="{{tiem}}" bindtap='onTapKey' data-keyword="{{item}}">
+      <view class='txt'>
+      <text class='iconfont icon-time'></text>
+      <text class='word'>{{item}}</text>
+      </view>
+      <text class='iconfont icon-close' data-index="{{index}}" catchtap='deleteHis'></text>
+    </view>
+
+    <text class='clear' bindtap='deleteHis' wx:if='{{searchHis.length}}'>清空搜索记录</text>
+
+
+  </view>
+  </view>
+
+
+    <view class='results' wx:if="{{results.length}}">
+    <view class='result_wrap'>
+
+
+      <view class='result_item' wx:for="{{results}}" wx:key="{{item.albumid}}">
+        <text class='iconfont icon-yinle'></text>
+        <view class='desc'>
+        <text class='title'>{{item.songname}}</text>
+        <text class='singer'>{{item.singer[0].name}}</text>
+        </view>
+      </view>
+
+      <text class='bottom' wx:if="{{isToBottom}}">到底了~~</text>
+
+
+    </view>
+  </view>
+
+</view>

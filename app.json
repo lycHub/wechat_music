@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/songsheet/song-sheet"
+    "pages/songsheet/song-sheet",
+    "pages/toplist/toplist"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,11 +29,11 @@
         "text": "推荐"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/toplist/toplist",
         "text": "排行榜"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/search/search",
         "text": "搜索"
       }
     ]

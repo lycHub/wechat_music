@@ -1,0 +1,39 @@
+.toplist .wrap{
+  width: 92%;
+  margin: 0 auto;
+}
+
+.toplist .wrap .item{
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.toplist .wrap .item .cover_img{
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 20rpx;
+}
+.toplist .wrap .item .cover_img image{
+  width: 100%;
+  height: 100%;
+}
+
+.toplist .wrap .item .cover_img .lis_num{
+  position: absolute;
+  bottom: 20rpx;
+  left: 5rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+
+.toplist .wrap .item .desc{
+  font-size: 28rpx;
+}
+
+.toplist .wrap .item .desc .title{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
