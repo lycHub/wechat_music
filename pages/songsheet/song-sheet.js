@@ -17,21 +17,7 @@ Page({
     isToBottom: false,
 
     // 按钮播放全部的className
-    playAll_class: 'play_start',
-
-    // 当前播放索引
-    currentIndex: -1,
-
-    // 是否正在播放
-    playState: false,
-
-    // 已经播放过
-    hasPlayed: false,
-
-    loop: false,
-    
-    // 正在播放的歌曲
-    currentSong: {}
+    playAll_class: 'play_start'
   },
 
   /**
@@ -46,14 +32,10 @@ Page({
     }
   },
 
-
-  onReady() {
-    const playAll = wx.createSelectorQuery().select('.song_sheet .info_wrap .info .play_start');
-    playAll.boundingClientRect(rect => {
-      this.btnTop = rect.top;
-      // console.log(this.btnTop);
-    }).exec()
+  getBtnTop(val) {
+    this.btnTop = val.detail;
   },
+
 
   onPageScroll({ scrollTop }) {
     const hasFixed = /fix/.test(this.data.playAll_class);
@@ -63,8 +45,7 @@ Page({
       if (!hasFixed) {
         // console.log('b');
         this.setData({
-          playAll_class: 'play_start fix',
-          currentTop: scrollTop
+          playAll_class: 'play_start fix'
         });
       }
     }else{
@@ -90,50 +71,7 @@ Page({
   },
 
 
-  // 播放/暂停切换
-  togglePlay(event) {
-    this.setData({ playState: !this.data.playState });
-  },
 
-
-  // 点击播放歌曲
-  playSong(event) {
-    let index;
-
-    if (!event) {
-      index = Math.max(0, this.data.currentIndex);
-    }else{
-      index = event.currentTarget.dataset.index || 0;
-    }
-
-    // if (!event.currentTarget.dataset.index) {
-    //   index = 0;
-    // }else{
-    //   index = event.currentTarget.dataset.index
-    // }
-    this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
-  },
-
-
-  // 接收正在播放事件
-  onPlaying() {
-    this.setData({ playState: true });
-  },
-
-
-  // 接收暂停事件
-  onPausing() {
-    this.setData({ playState: false });
-  },
-
-
-  // 结束播放结束事件
-  onEnded() {
-    const index = Math.min(this.data.currentIndex + 1, this.data.songList.length - 1);
-    this.setData({ playState: false, currentIndex: index });
-    this.playSong();
-    // console.log('currentIndex', this.data.currentIndex);
-  },
 
 
 

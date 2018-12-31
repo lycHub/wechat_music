@@ -1,0 +1,63 @@
+<view class="song_sheet">
+  <view class='info_wrap'>
+    <view class="info">
+      <view class='top'>
+        <view class='cover_img'>
+          <image src='{{otherDatas.logo}}' mode='aspectFit'></image>
+        </view>
+        <view class='text'>
+          <view class='title'>
+            <text>{{otherDatas.dissname}}</text>
+          </view>
+          <view class='author'>
+            <text>{{otherDatas.nickname}}</text>
+          </view>
+          <view class='listen_num'>
+            <text>播放量：{{otherDatas.visitnum}}万</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="{{playAll_class}}">
+        <button type='primary' bindtap="playSong" wx:if="{{!hasPlayed}}">播放全部</button>
+        <view class='control' wx:if="{{hasPlayed}}">
+          <text bindtap="togglePlay" class="{{playState ? 'iconfont icon-suspend_icon' : 'iconfont icon-play'}}"></text>
+          <text class='name'>{{currentSong.songname}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <image class='pic_cover' src='{{otherDatas.logo}}'></image>
+  </view>
+
+  <view class='song_list'>
+    <view class='song_list_wrap'>
+      <view class='title'>
+        <text>歌单：共{{otherDatas.songnum}}首</text>
+        <view class='like'>
+          <text style='margin-right:16rpx;'>收藏</text>
+          <text class="iconfont icon-shoucang"></text>
+        </view>
+      </view>
+
+      <view class='list'>
+        <view class='item' wx:for="{{songList}}" wx:key="{{item.albumid}}" bindtap="playSong" data-index="{{index}}">
+          <text class='tit'>{{item.songname}}</text>
+          <text class='desc'>{{item.albumname}}</text>
+        </view>
+      </view>
+
+      <text class='to_bottom' wx:if="{{isToBottom}}">到底了~~</text>
+
+    </view>
+  </view>
+</view>
+<my-audio
+  loop="{{loop}}"
+  currentSong="{{currentSong}}"
+  playState="{{playState}}"
+  bindplaying="onPlaying"
+  bindpause="onPausing"
+  bindend="onEnded">
+</my-audio>

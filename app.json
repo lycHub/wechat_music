@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/search/search",
     "pages/index/index",
     "pages/songsheet/song-sheet",
-    "pages/toplist/toplist"
+    "pages/toplist/toplist",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,7 +15,8 @@
     "audio"
   ],
   "usingComponents": {
-    "my-audio": "../../components/my-audio/my-audio"
+    "my-audio": "../../components/my-audio/my-audio",
+    "song-list": "../../components/songlist/songlist"
   },
   "tabBar": {
     "color": "rgba(0,0,0,.6)",
