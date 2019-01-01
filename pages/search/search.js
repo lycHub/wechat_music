@@ -99,7 +99,7 @@ Page({
     if (!keyword) return;
 
     searchServe.search(this.data.searchParams).then(res => {
-      console.log('result', res);
+      console.log('result', res.list);
       if (first) {
         this.setData({
           results: res.list,
@@ -124,7 +124,7 @@ Page({
 
     const hasRepeat = this.data.searchHis.findIndex(item => item === keyword) !== -1;
     if (!hasRepeat) {
-      this.data.searchHis.push(keyword);
+      this.data.searchHis.unshift(keyword);
     }
     this.setData({ searchHis: this.data.searchHis });
     wx.setStorageSync('searchHis', JSON.stringify(this.data.searchHis));

@@ -40,6 +40,11 @@ Component({
     playAll_class: {
       type: String,
       value: 'play_start'
+    },
+
+    loop: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -56,8 +61,6 @@ Component({
 
     // 已经播放过
     hasPlayed: false,
-
-    loop: false,
 
     // 正在播放的歌曲
     currentSong: {}
@@ -88,6 +91,8 @@ Component({
       // }else{
       //   index = event.currentTarget.dataset.index
       // }
+
+      console.log(this.data.songList[index]);
       this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
     },
 

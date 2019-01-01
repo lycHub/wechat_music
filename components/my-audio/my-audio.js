@@ -86,6 +86,7 @@ Component({
 
     // 监听自然停止
     _onEnd() {
+      if(this.data.loop) return;
       this.audio.onEnded(() => {
         console.log('播放结束');
         this.triggerEvent('end');
