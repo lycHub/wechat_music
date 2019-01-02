@@ -24,7 +24,8 @@ Component({
         // console.log('currentSong', newVal);
         if (newVal && !isEmptyObject(newVal)) {
           const songmid = newVal.songmid;
-          this.audio.src = `http://117.169.70.149/amobile.music.tc.qq.com/C400${songmid}.m4a?guid=8777127740&vkey=BE691FB0AA465E4A16662286F11EE8F8A618EEE62DFBDEE0E4BDA4D81B6402C04C113FA2855BBF95A616FE90137CE44CFF486934D84B9E2B&uin=500&fromtag=38`;
+
+          this.audio.src = `http://117.21.183.21/amobile.music.tc.qq.com/C400${songmid}.m4a?guid=1523753600&vkey=BB74352664B47E92EB4B24AC53DA7F9617DE7E9E3BE3005B61F1E29FC5697199594AA9782BC93B862741FECF299C67CACFEEBB753E32A3CD&uin=500&fromtag=38`;
           this.play();
         }
       }
