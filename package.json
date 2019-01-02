@@ -1,0 +1,26 @@
+{
+  "name": "wechat_music",
+  "version": "1.0.0",
+  "description": "wechat",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lycHub/wechat_music.git"
+  },
+  "keywords": [
+    "wechat"
+  ],
+  "author": "Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lycHub/wechat_music/issues"
+  },
+  "homepage": "https://github.com/lycHub/wechat_music#readme",
+  "dependencies": {
+    "js-base64": "^2.5.0",
+    "lyric-parser": "^1.0.1"
+  }
+}

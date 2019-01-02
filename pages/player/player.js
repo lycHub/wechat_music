@@ -1,4 +1,5 @@
 const lyricServe = require('../../services/lyric.service.js');
+const Lyric = require('../../miniprogram_npm/lyric-parser/index.js');
 
 Page({
 
@@ -16,7 +17,7 @@ Page({
     this.setData({ song: JSON.parse(options.song) });
     console.log(this.data.song);
     lyricServe.getLyrics(this.data.song.songmid).then(res => {
-      console.log(res);
+      console.log(new Lyric(res));
     })
   },
 
