@@ -9,9 +9,9 @@ class LyricService {
   }
 
   getLyrics(songmid) {
-    if (this.lyric) {
-      return Promise.resolve(this.lyric);
-    }
+    // if (this.lyric) {
+    //   return Promise.resolve(this.lyric);
+    // }
 
     const extraParams = {
       g_tk: 1928093487,

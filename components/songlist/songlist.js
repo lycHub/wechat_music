@@ -86,6 +86,9 @@ Component({
         index = event.currentTarget.dataset.index || 0;
       }
       this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
+
+
+      // console.log(this.data.currentSong);
     },
 
 
@@ -108,6 +111,6 @@ Component({
       this.setData({ playState: false, currentIndex: index });
       this.playSong();
       // console.log('currentIndex', this.data.currentIndex);
-    },
+    }
   }
 })

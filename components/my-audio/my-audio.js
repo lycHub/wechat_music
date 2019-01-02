@@ -4,7 +4,7 @@ Component({
   lifetimes: {
     attached() {
       this.audio = wx.createInnerAudioContext();
-      this.audio.loop = this.data.loop;
+      // this.audio.loop = this.data.loop;
       this._onEnd();
       this._onError();
     },
@@ -85,7 +85,7 @@ Component({
 
     // 监听自然停止
     _onEnd() {
-      if(this.data.loop) return;
+      // if(this.data.loop) return;
       this.audio.onEnded(() => {
         console.log('播放结束');
         this.triggerEvent('end');

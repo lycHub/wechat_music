@@ -1,28 +1,38 @@
 <view class='player'>
-<view class='control_wrap'>
-  <view class='title'>
-<text class='song_name'>龙卷风</text>
-<text class='singer_name'>周杰伦</text>
+  <view class='control_wrap'>
+    <view class='title'>
+      <text class='song_name'>{{song.songname}}</text>
+      <text class='singer_name'>{{song.singer}}</text>
+    </view>
+
+
+    <view class='lyric'>
+
+
+      <scroll-view class='lyric_wrap' scroll-y scroll-with-animation scroll-into-view="{{toView}}">
+        <text id="{{item.id}}" class="{{currentLineNum === index ? 'current' : ''}}" wx:for="{{lyric}}" wx:key="{{item.time}}">{{item.txt}}</text>
+      </scroll-view>
+
+
+    </view>
+
+    <text bindtap="togglePlay" class="{{playState ? 'play_btn iconfont icon-suspend_icon' : 'play_btn iconfont icon-play'}}"></text>
+
+
+  </view>
+
+  <view class='bg'>
+    <image src="{{bg}}"></image>
+  </view>
+
 </view>
 
 
-<view class='lyric'>
-
-
-<scroll-view class='lyric_wrap' scroll-y>
-<text wx:for="{{lyric}}" wx:key="{{item.time}}">{{item.txt}}</text>
-</scroll-view>
-
-
-</view>
-
-<text class="{{playState ? 'play_btn iconfont icon-suspend_icon' : 'play_btn iconfont icon-play'}}"></text>
-
-
-</view>
-
-<view class='bg'>
-<image src="{{bg}}"></image>
-</view>
-
-</view>
+<my-audio
+  loop="{{loop}}"
+  currentSongMid="{{song.songmid}}"
+  playState="{{playState}}"
+  bindplaying="onPlaying"
+  bindpause="onPausing"
+  bindend="onEnded">
+</my-audio>
