@@ -85,14 +85,6 @@ Component({
       } else {
         index = event.currentTarget.dataset.index || 0;
       }
-
-      // if (!event.currentTarget.dataset.index) {
-      //   index = 0;
-      // }else{
-      //   index = event.currentTarget.dataset.index
-      // }
-
-      // console.log(this.data.songList[index]);
       this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
     },
 

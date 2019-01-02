@@ -1,2 +1,20 @@
-<!--pages/player/player.wxml-->
-<text>pages/player/player.wxml</text>
+<view class='player'>
+<view class='title'>
+<text class='song_name'>龙卷风</text>
+<text class='singer_name'>周杰伦</text>
+</view>
+
+
+<view class='lyric'>
+
+
+<scroll-view class='lyric_wrap' scroll-y>
+<text wx:for="{{lyric}}" wx:key="{{item.time}}">{{item.txt}}</text>
+</scroll-view>
+
+
+</view>
+
+<text class="{{playState ? 'play_btn iconfont icon-suspend_icon' : 'play_btn iconfont icon-play'}}"></text>
+
+</view>

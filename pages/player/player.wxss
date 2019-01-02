@@ -1,1 +1,42 @@
-/* pages/player/player.wxss */
+.player text {
+  display: block;
+  text-align: center;
+}
+
+.player .title {
+  padding: 30rpx 0;
+}
+
+.player .title .singer_name {
+  font-size: 28rpx;
+}
+
+.player .lyric .lyric_wrap{
+  height: 600rpx;
+  overflow: hidden;
+}
+
+.player .lyric .lyric_wrap text {
+  display: block;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 2;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 30rpx;
+}
+
+.player .lyric .lyric_wrap text.current{
+  color: #31c27c;
+}
+
+.player .play_btn{
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 40rpx auto;
+  line-height:80rpx;
+  font-size:80rpx;
+}

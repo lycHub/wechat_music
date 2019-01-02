@@ -7,7 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    song: {}
+    song: {},
+    bg: '',
+    lyric: [],
+
+    // 是否正在播放
+    playState: false
   },
 
   /**
@@ -15,9 +20,15 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ song: JSON.parse(options.song) });
-    console.log(this.data.song);
+   
+    // console.log(this.data.song);
     lyricServe.getLyrics(this.data.song.songmid).then(res => {
-      console.log(new Lyric(res));
+      this.setData({
+        lyric: new Lyric(res).lines,
+        bg: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${this.data.song.albummid}.jpg?max_age=2592000`
+      });
+
+      console.log(this.data.lyric);
     })
   },
 

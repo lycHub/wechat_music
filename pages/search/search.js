@@ -135,10 +135,12 @@ Page({
   selectSong(evt) {
     const index = evt.currentTarget.dataset.index || 0;
     const song = this.data.results[index];
+    // console.log('song', song);
     const params = {
       songmid: song.songmid,
       songname: song.songname,
-      singer: song.singer[0].name
+      singer: song.singer[0].name,
+      albummid: song.albummid
     }
     wx.navigateTo({
       url: '../player/player?song=' + JSON.stringify(params)

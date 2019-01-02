@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/index/index",
     "pages/index/songsheet/song-sheet",
     "pages/toplist/toplist",
-    "pages/search/search",
     "pages/player/player"
   ],
   "window": {
@@ -16,7 +16,8 @@
     "audio"
   ],
   "usingComponents": {
-    "song-list": "../../components/songlist/songlist"
+    "song-list": "../../components/songlist/songlist",
+    "my-audio": "../../components/my-audio/my-audio"
   },
   "tabBar": {
     "color": "rgba(0,0,0,.6)",
