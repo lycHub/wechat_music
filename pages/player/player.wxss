@@ -20,12 +20,12 @@
 }
 
 .player .control_wrap .lyric .lyric_wrap{
-  height: 600rpx;
+  height: 820rpx;
   overflow: hidden;
 }
 
 .player .control_wrap .lyric .lyric_wrap text {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: rgba(0, 0, 0, 0.9);
   line-height: 2;
   overflow: hidden;
@@ -56,5 +56,5 @@
 .player .bg image{
   display: block;
   width: 100%;
-  height: 880rpx;
+  height: 1080rpx;
 }
