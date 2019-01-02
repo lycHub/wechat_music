@@ -92,7 +92,7 @@ Component({
       //   index = event.currentTarget.dataset.index
       // }
 
-      console.log(this.data.songList[index]);
+      // console.log(this.data.songList[index]);
       this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
     },
 

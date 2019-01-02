@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/index/songsheet/song-sheet",
     "pages/toplist/toplist",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/player/player"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -43,7 +43,7 @@ Page({
     }
     
 
-    console.log('his', this.data.searchHis);
+    // console.log('his', this.data.searchHis);
 
     searchServe.getHotKeys().then(res => {
       
@@ -99,7 +99,7 @@ Page({
     if (!keyword) return;
 
     searchServe.search(this.data.searchParams).then(res => {
-      console.log('result', res.list);
+      // console.log('result', res.list);
       if (first) {
         this.setData({
           results: res.list,
@@ -131,13 +131,18 @@ Page({
   },
 
 
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 播放搜索结果
+  selectSong(evt) {
+    const index = evt.currentTarget.dataset.index || 0;
+    const song = this.data.results[index];
+    const params = {
+      songmid: song.songmid,
+      songname: song.songname,
+      singer: song.singer[0].name
+    }
+    wx.navigateTo({
+      url: '../player/player?song=' + JSON.stringify(params)
+    });
   },
 
   /**

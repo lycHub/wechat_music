@@ -50,7 +50,7 @@
 </view>
 <my-audio
   loop="{{loop}}"
-  currentSong="{{currentSong}}"
+  currentSongMid="{{currentSong.songmid}}"
   playState="{{playState}}"
   bindplaying="onPlaying"
   bindpause="onPausing"

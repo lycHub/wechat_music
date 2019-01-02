@@ -40,7 +40,7 @@
     <view class='result_wrap'>
 
 
-      <view class='result_item' wx:for="{{results}}" wx:key="{{item.albumid}}">
+      <view class='result_item' wx:for="{{results}}" wx:key="{{item.albumid}}" data-index="{{index}}" bindtap="selectSong">
         <text class='iconfont icon-yinle'></text>
         <view class='desc'>
         <text class='title'>{{item.songname}}</text>

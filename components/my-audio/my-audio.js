@@ -18,14 +18,12 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    currentSong: {
-      type: Object,
+    currentSongMid: {
+      type: String,
       observer(newVal) {
-        // console.log('currentSong', newVal);
-        if (newVal && !isEmptyObject(newVal)) {
-          const songmid = newVal.songmid;
-
-          this.audio.src = `http://117.21.183.21/amobile.music.tc.qq.com/C400${songmid}.m4a?guid=1523753600&vkey=BB74352664B47E92EB4B24AC53DA7F9617DE7E9E3BE3005B61F1E29FC5697199594AA9782BC93B862741FECF299C67CACFEEBB753E32A3CD&uin=500&fromtag=38`;
+        // console.log('currentSongMid', newVal);
+        if (newVal) {
+          this.audio.src = `http://117.21.183.21/amobile.music.tc.qq.com/C400${newVal}.m4a?guid=1523753600&vkey=BB74352664B47E92EB4B24AC53DA7F9617DE7E9E3BE3005B61F1E29FC5697199594AA9782BC93B862741FECF299C67CACFEEBB753E32A3CD&uin=500&fromtag=38`;
           this.play();
         }
       }
