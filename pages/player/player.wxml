@@ -1,5 +1,6 @@
 <view class='player'>
-<view class='title'>
+<view class='control_wrap'>
+  <view class='title'>
 <text class='song_name'>龙卷风</text>
 <text class='singer_name'>周杰伦</text>
 </view>
@@ -16,5 +17,12 @@
 </view>
 
 <text class="{{playState ? 'play_btn iconfont icon-suspend_icon' : 'play_btn iconfont icon-play'}}"></text>
+
+
+</view>
+
+<view class='bg'>
+<image src="{{bg}}"></image>
+</view>
 
 </view>

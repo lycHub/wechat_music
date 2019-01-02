@@ -3,40 +3,59 @@
   text-align: center;
 }
 
-.player .title {
+.player .control_wrap{
+  position: relative;
   padding: 30rpx 0;
+  z-index: 1;
+  background-color: #fff;
+  opacity: 0.8;
 }
 
-.player .title .singer_name {
+.player .control_wrap .title {
+  margin-bottom: 30rpx;
+}
+
+.player .control_wrap .title .singer_name {
   font-size: 28rpx;
 }
 
-.player .lyric .lyric_wrap{
+.player .control_wrap .lyric .lyric_wrap{
   height: 600rpx;
   overflow: hidden;
 }
 
-.player .lyric .lyric_wrap text {
-  display: block;
+.player .control_wrap .lyric .lyric_wrap text {
   font-size: 28rpx;
   color: rgba(0, 0, 0, 0.9);
   line-height: 2;
-  text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 0 30rpx;
 }
 
-.player .lyric .lyric_wrap text.current{
+.player .control_wrap .lyric .lyric_wrap text.current{
   color: #31c27c;
 }
 
-.player .play_btn{
+.player .control_wrap .play_btn{
   display: block;
   width: 80rpx;
   height: 80rpx;
   margin: 40rpx auto;
   line-height:80rpx;
   font-size:80rpx;
+}
+
+.player .bg{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /* height: 940rpx; */
+}
+
+.player .bg image{
+  display: block;
+  width: 100%;
+  height: 940rpx;
 }
