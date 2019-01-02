@@ -51,11 +51,10 @@
   position: absolute;
   top: 0;
   width: 100%;
-  /* height: 940rpx; */
 }
 
 .player .bg image{
   display: block;
   width: 100%;
-  height: 940rpx;
+  height: 880rpx;
 }
