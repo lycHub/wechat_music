@@ -34,5 +34,6 @@
   playState="{{playState}}"
   bindplaying="onPlaying"
   bindpause="onPausing"
-  bindend="onEnded">
+  bindend="onEnded"
+  binderror="onError">
 </my-audio>
