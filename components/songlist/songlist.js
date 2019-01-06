@@ -87,34 +87,25 @@ Component({
       }
       this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
 
-      // this._getlyric();
+      this._getlyric();
       // console.log(this.data.currentSong);
     },
 
 
     // 获取歌词
     _getlyric() {
-      const that = this;
       lyricServe.getLyrics(this.data.currentSong.songmid).then(res => {
-        if (that.currentLyric) {
-          that.currentLyric.stop();
+        if (this.currentLyric) {
+          this.currentLyric.stop();
         }
-        that.currentLyric = new Lyric(res, that.handleLyric);
-        if (that.data.playState) {
-          that.currentLyric.play();
+        this.currentLyric = new Lyric(res, ({txt}) =>{
+          this.setData({ playingLyric: txt });
+          console.log(this.data.playingLyric);
+        });
+        if (this.data.playState) {
+          this.currentLyric.play();
         }
-
-
-        // console.log(this.data.lyric);
       })
-    },
-
-
-
-    // 播放歌词
-    handleLyric(obj) {
-      console.log('this', this);
-      // this.setData({ playingLyric: txt });
     },
 
 
