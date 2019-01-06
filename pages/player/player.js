@@ -34,9 +34,6 @@ Page({
         this.currentLyric.stop();
       }
       this.currentLyric = new Lyric(res, this.handleLyric);
-      if (this.data.playState) {
-        this.currentLyric.play();
-      }
 
       const lines = [];
       this.currentLyric.lines.forEach((value, key) => {
@@ -49,7 +46,11 @@ Page({
       });
 
 
-      // console.log(this.data.lyric);
+      setTimeout(() => {
+        if (this.data.playState) {
+          this.currentLyric.play();
+        }
+      }, 500);
     })
   },
 
