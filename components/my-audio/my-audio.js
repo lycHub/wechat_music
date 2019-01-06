@@ -23,7 +23,12 @@ Component({
       observer(newVal) {
         // console.log('currentSongMid', newVal);
         if (newVal) {
-          this.audio.src = `http://117.21.183.21/amobile.music.tc.qq.com/C400${newVal}.m4a?guid=1523753600&vkey=BB74352664B47E92EB4B24AC53DA7F9617DE7E9E3BE3005B61F1E29FC5697199594AA9782BC93B862741FECF299C67CACFEEBB753E32A3CD&uin=500&fromtag=38`;
+          /**
+           * 
+           * http://dl.stream.qqmusic.qq.com/C400${newVal}.m4a?guid=8777127740&vkey=14DF9C11A018E0949805F5D9D13532A1ABC5CF2604B2C6A6B51A214D7F2A009E188BBBF486BDDDC1C067F834207CB6F895D72C1324E1AD38&uin=500&fromtag=38
+           * 
+           */
+          this.audio.src = `http://dl.stream.qqmusic.qq.com/C400${newVal}.m4a?guid=8777127740&vkey=14DF9C11A018E0949805F5D9D13532A1ABC5CF2604B2C6A6B51A214D7F2A009E188BBBF486BDDDC1C067F834207CB6F895D72C1324E1AD38&uin=500&fromtag=38`;
           this.play();
         }
       }
