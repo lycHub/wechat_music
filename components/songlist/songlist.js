@@ -88,7 +88,7 @@ Component({
       this.setData({ currentIndex: index, currentSong: this.data.songList[index], hasPlayed: true });
 
       this._getlyric();
-      // console.log(this.data.currentSong);
+      console.log(this.data.currentSong);
     },
 
 
@@ -100,7 +100,7 @@ Component({
         }
         this.currentLyric = new Lyric(res, ({txt}) =>{
           this.setData({ playingLyric: txt });
-          console.log(this.data.playingLyric);
+          // console.log(this.data.playingLyric);
         });
         if (this.data.playState) {
           this.currentLyric.play();
